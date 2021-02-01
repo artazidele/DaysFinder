@@ -46,22 +46,21 @@ class ViewController: UIViewController {
         formatter.dateFormat = "dd.MM.yyyy"
         let knownDay = "01.02.2021"
         let unknownDay = "\(day).\(month).\(year)"
-        //let unknownDay = "02.02.2021"
         let knownDate = formatter.date(from: knownDay) ?? Date()
         let unknownDate = formatter.date(from: unknownDay) ?? Date()
         
         let daysBetween = calendar.dateComponents([.day], from: unknownDate, to: knownDate).day
-        if daysBetween! % 7 == 1 {
+        if daysBetween! % 7 == -1 || daysBetween! % 7 == 6 {
             print(resultLabel.text = "Tuesday")
-        } else if daysBetween! % 7 == 2{
+        } else if daysBetween! % 7 == -2 || daysBetween! % 7 == 5 {
             resultLabel.text = "Wednesday"
-        } else if daysBetween! % 7 == 3{
+        } else if daysBetween! % 7 == -3 || daysBetween! % 7 == 4 {
             resultLabel.text = "Thursday"
-        } else if daysBetween! % 7 == 4{
+        } else if daysBetween! % 7 == -4 || daysBetween! % 7 == 3 {
             resultLabel.text = "Friday"
-        } else if daysBetween! % 7 == 5{
+        } else if daysBetween! % 7 == -5 || daysBetween! % 7 == 2 {
             resultLabel.text = "Saturday"
-        } else if daysBetween! % 7 == 6{
+        } else if daysBetween! % 7 == -6 || daysBetween! % 7 == 1 {
             resultLabel.text = "Sunday"
         } else if daysBetween! % 7 == 0{
             resultLabel.text = "Monday"
