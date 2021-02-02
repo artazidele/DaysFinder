@@ -99,7 +99,7 @@
                         <barButtonItem key="leftBarButtonItem" image="info.circle.fill" catalog="system" id="eda-CS-OOP">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="AxJ-IG-IDQ" kind="show" id="Tbp-5L-5EZ"/>
+                                <segue destination="AxJ-IG-IDQ" kind="show" identifier="dayFinder" id="Tbp-5L-5EZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="moon.circle.fill" catalog="system" id="nnq-Hn-csN">
@@ -121,30 +121,60 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="78.348214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--App Info View Controller-->
         <scene sceneID="h22-fy-YQO">
             <objects>
-                <viewController id="AxJ-IG-IDQ" sceneMemberID="viewController">
+                <viewController id="AxJ-IG-IDQ" customClass="AppInfoViewController" customModule="DaysFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X0L-J5-HOd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-Ss-ZHb">
+                                <rect key="frame" x="46" y="159" width="291" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CG0-2U-Jvf">
+                                <rect key="frame" x="62" y="401" width="291" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="RaY-iN-nB3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="AJB-V1-bnu"/>
+                    <connections>
+                        <outlet property="AppInfoLabel" destination="Xx6-Ss-ZHb" id="Nrm-Ge-qqj"/>
+                        <outlet property="appDescLabel" destination="CG0-2U-Jvf" id="tMQ-fa-FKi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JkQ-J1-rKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="813"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="812.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Appearance View Controller-->
         <scene sceneID="182-c2-Wd7">
             <objects>
-                <viewController id="TKX-hU-gcw" sceneMemberID="viewController">
+                <viewController id="TKX-hU-gcw" customClass="AppearanceViewController" customModule="DaysFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n9h-0P-VYW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWk-xQ-4P0">
+                                <rect key="frame" x="337" y="0.0" width="57" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="TKX-hU-gcw" eventType="touchUpInside" id="JJm-NO-gTA"/>
+                                    <action selector="textLabel:" destination="UP2-no-ogB" eventType="touchUpInside" id="zvm-jw-R7O"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-pD-9Fn">
                                 <rect key="frame" x="79" y="345" width="256" height="152"/>
                                 <subviews>
@@ -169,6 +199,9 @@
                                         <state key="normal" title="Open Settings">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="openSettingsButtonTapped:" destination="TKX-hU-gcw" eventType="touchUpInside" id="dor-hc-vd5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -180,8 +213,12 @@
                             <constraint firstItem="ueg-pD-9Fn" firstAttribute="centerY" secondItem="n9h-0P-VYW" secondAttribute="centerY" id="4Zy-Cp-N0F"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textLabel" destination="BRO-VQ-heC" id="m5x-H0-XjH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZv-jH-Kyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="UP2-no-ogB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2005.7971014492755" y="77.678571428571431"/>
         </scene>
