@@ -82,6 +82,14 @@
                                     <action selector="findWeekDayTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cR2-3S-f5m"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sV-vR-0cv">
+                                <rect key="frame" x="127" y="791" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Reminder"/>
+                                <connections>
+                                    <action selector="reminder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w4P-kh-WgZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.98675684821865284" green="0.53709549966331738" blue="0.53709549966331738" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,6 +118,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addReminder" destination="1sV-vR-0cv" id="jzk-Cj-YSj"/>
                         <outlet property="dayTextField" destination="dIk-Pa-yt8" id="ezh-UN-B0D"/>
                         <outlet property="findButton" destination="vX3-E5-JLD" id="amh-Ba-8vc"/>
                         <outlet property="monthTextField" destination="reJ-lf-G4e" id="lCQ-Ie-j6i"/>

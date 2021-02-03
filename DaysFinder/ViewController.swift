@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var findButton: UIButton!
     
+    @IBOutlet weak var addReminder: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,14 +88,17 @@ class ViewController: UIViewController {
                 let weekday = dateFormatter.string(from: date)
                 let capitalizedWeekday = weekday.capitalized
                 resultLabel.text = capitalizedWeekday
+                addReminder.isHidden = false
             } else {
                 warningPopup(withTitle: "Wrong Date!", withMessage: "Please enter the correct Date!")
             }
         default:
         findButton.setTitle("Find", for: .normal)
         clearAllTextFields()
+            addReminder.isHidden = true
         }
     }
+    
     func clearAllTextFields() {
         dayTextField.text = ""
         monthTextField.text = ""
@@ -111,6 +115,22 @@ class ViewController: UIViewController {
         self.present(popUp, animated: true, completion: nil)
         
     }
+    
+    @IBAction func reminder(_ sender: Any) {
+        openReminders()
+    }
+    func openReminders() {
+        /*guard let remindersURL = URL(string: UIApplication.shared) else {
+            return
+        }*/
+        if UIApplication.shared.canOpenURL(URL(string:"x-apple-reminderkit://")!) {
+            UIApplication.shared.open(URL(string: "x-apple-reminderkit://")!) { (success) in
+                print("open: ", success)
+            }
+        }
+    }
+    
+    
     
     // MARK: - Navigation
 
