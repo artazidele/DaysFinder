@@ -120,9 +120,6 @@ class ViewController: UIViewController {
         openReminders()
     }
     func openReminders() {
-        /*guard let remindersURL = URL(string: UIApplication.shared) else {
-            return
-        }*/
         if UIApplication.shared.canOpenURL(URL(string:"x-apple-reminderkit://")!) {
             UIApplication.shared.open(URL(string: "x-apple-reminderkit://")!) { (success) in
                 print("open: ", success)
